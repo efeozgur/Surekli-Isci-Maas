@@ -8,8 +8,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import javax.print.attribute.AttributeSet;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
@@ -32,7 +34,7 @@ public class KisiFormu extends javax.swing.JFrame {
         tfAdSoyad = new JHarfTextField();
         lblMedeniDurum = new javax.swing.JLabel();
         cmbMedeniDurum = new javax.swing.JComboBox<>();
-        tfIban = new javax.swing.JTextField();
+        tfIban = new JIbanField();
         lblIban = new javax.swing.JLabel();
         lblUnvan = new javax.swing.JLabel();
         cmbUnvan = new javax.swing.JComboBox<>();
@@ -182,7 +184,7 @@ public class KisiFormu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public class JNumberTextField extends JTextField {
-        private static final long serialVersionUID = 1L;
+       //private static final long serialVersionUID = 1L;
 
         @Override
         protected void processKeyEvent(KeyEvent e) {
@@ -206,7 +208,16 @@ public class KisiFormu extends javax.swing.JFrame {
         }
     }
     
-    
+    public class JIbanField extends JTextField {
+
+        @Override
+        public void setText(String t) {
+            super.setText("TR ");
+           
+        }
+       
+
+    }
     
     
     
@@ -214,6 +225,9 @@ public class KisiFormu extends javax.swing.JFrame {
     
     private void btnKaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaydetActionPerformed
     
+        
+        tfIban.setText("2323333");
+        
         /*
         Connection c = null;
         Statement stmt = null;
@@ -247,15 +261,11 @@ public class KisiFormu extends javax.swing.JFrame {
 
 
     
-    public static void main(String args[]) {
-      
-        
-        
+    public static void main(String args[]) {                
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-              new KisiFormu().setVisible(true);
-              
+              new KisiFormu().setVisible(true);              
             }
         });
     }
