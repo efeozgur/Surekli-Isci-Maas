@@ -29,7 +29,7 @@ public class KisiFormu extends javax.swing.JFrame {
         lblTcNo = new javax.swing.JLabel();
         tfTcNo = new JNumberTextField();
         lblAdSoyad = new javax.swing.JLabel();
-        tfAdSoyad = new javax.swing.JTextField();
+        tfAdSoyad = new JHarfTextField();
         lblMedeniDurum = new javax.swing.JLabel();
         cmbMedeniDurum = new javax.swing.JComboBox<>();
         tfIban = new javax.swing.JTextField();
@@ -192,8 +192,20 @@ public class KisiFormu extends javax.swing.JFrame {
             e.consume();
             return; 
         }
-        
     }
+    
+    public class JHarfTextField extends JTextField {
+
+        @Override
+        protected void processKeyEvent(KeyEvent e) {      
+            if (!Character.isDigit(e.getKeyChar())) {
+                super.processKeyEvent(e); //To change body of generated methods, choose Tools | Templates.
+            } 
+            e.consume();
+            return;             
+        }
+    }
+    
     
     
     
@@ -240,6 +252,7 @@ public class KisiFormu extends javax.swing.JFrame {
         
         
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
               new KisiFormu().setVisible(true);
               
