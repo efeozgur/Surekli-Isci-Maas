@@ -41,8 +41,10 @@ public class Main {
         System.out.println("ASGARİ GEÇİM İNDİRİMİ : "+AGI.agiYolla(AGILER.EVLI_ESI_CALISMAYAN_2_COCUKLU));
         System.out.println("Gelir Vergisi : " + hesap.gelirVergisi(15, AGILER.EVLI_ESI_CALISAN_2_COCUKLU));
         System.out.println("Damga Vergisi : " + hesap.damgaVergisi(asy, ysy));
-        
         System.out.println("Hakediş Toplamı : " + hesap.hakedisToplami(asy, ysy));
+        System.out.println("Tahakkuk Toplamı : " + hesap.tahakkukToplami(asy, ysy));
+        System.out.println("Kesintiler Toplamı : " + hesap.kesintiToplami(asy, ysy));
+        System.out.println("Net Ödenen : " + hesap.netOdenen(asy, ysy));
         
         
         

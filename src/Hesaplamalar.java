@@ -65,8 +65,15 @@ public class Hesaplamalar extends Kisi{
         return hakedisToplami(ay, yil)*Sabitler.damgaVergisiOrani;
     }
     
-    public double kesintiToplami() {
-        
+    public double kesintiToplami(AylikSosyalYardimlar ay, YillikSosyalYardimlar yil) {
+        return gvYolla+damgaVergisi(ay, yil)+sgk20()+sgk2()+sgk1()+sgk14();
     }
     
+    public double tahakkukToplami(AylikSosyalYardimlar ay, YillikSosyalYardimlar yil){
+        return hakedisToplami(ay, yil)+sgk20()+sgk2();
+    }
+    
+    public double netOdenen(AylikSosyalYardimlar ay, YillikSosyalYardimlar yil) {
+        return tahakkukToplami(ay, yil) - kesintiToplami(ay, yil) ;
+    }
 }
