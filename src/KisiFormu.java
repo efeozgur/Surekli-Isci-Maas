@@ -1,9 +1,17 @@
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import javax.print.attribute.AttributeSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 
 public class KisiFormu extends javax.swing.JFrame {
@@ -19,7 +27,7 @@ public class KisiFormu extends javax.swing.JFrame {
         tab = new javax.swing.JTabbedPane();
         Zemin1 = new javax.swing.JPanel();
         lblTcNo = new javax.swing.JLabel();
-        tfTcNo = new javax.swing.JTextField();
+        tfTcNo = new JNumberTextField();
         lblAdSoyad = new javax.swing.JLabel();
         tfAdSoyad = new javax.swing.JTextField();
         lblMedeniDurum = new javax.swing.JLabel();
@@ -173,8 +181,28 @@ public class KisiFormu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnKaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaydetActionPerformed
+    public class JNumberTextField extends JTextField {
+        private static final long serialVersionUID = 1L;
 
+        @Override
+        protected void processKeyEvent(KeyEvent e) {
+            if (Character.isDigit(e.getKeyChar())) {
+                super.processKeyEvent(e); //To change body of generated methods, choose Tools | Templates.
+            }
+            e.consume();
+            return; 
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    private void btnKaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaydetActionPerformed
+    
+        /*
         Connection c = null;
         Statement stmt = null;
 
@@ -202,7 +230,7 @@ public class KisiFormu extends javax.swing.JFrame {
             System.out.println(e);
         }
 
-        
+        */
     }//GEN-LAST:event_btnKaydetActionPerformed
 
 
