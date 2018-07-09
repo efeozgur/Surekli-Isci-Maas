@@ -15,7 +15,7 @@ public class Main {
         
         // setler ayarlanıyor
         
-        oby.setEvlenmeYardimi(true);
+        //oby.setEvlenmeYardimi(true);
         hesap.setBrutUcret(4);
         hesap.setGunlukUcret(gun);
         asy.setYemekYardimi(gun);
