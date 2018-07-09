@@ -45,33 +45,11 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="Zemin2">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="G&#xfc;n Bilgileri">
-                <Property name="tabTitle" type="java.lang.String" value="G&#xfc;n Bilgileri"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="529" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="291" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
         <Container class="javax.swing.JPanel" name="Zemin1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Ki&#x15f;i Bilgileri">
-                <Property name="tabTitle" type="java.lang.String" value="Ki&#x15f;i Bilgileri"/>
+              <JTabbedPaneConstraints tabName="Ki&#x15f;i Kay&#x131;t Ekran&#x131;">
+                <Property name="tabTitle" type="java.lang.String" value="Ki&#x15f;i Kay&#x131;t Ekran&#x131;"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -220,7 +198,7 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="S&#xfc;rekli &#x130;&#x15f;&#xe7;i"/>
+                    <StringItem index="0" value="isci"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -290,6 +268,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Veritaban&#x131;na Kaydet"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKaydetActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnTemizle">
               <Properties>

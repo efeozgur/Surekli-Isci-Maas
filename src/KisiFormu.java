@@ -1,7 +1,9 @@
 
-import java.awt.Panel;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 
 public class KisiFormu extends javax.swing.JFrame {
 
@@ -14,7 +16,6 @@ public class KisiFormu extends javax.swing.JFrame {
     private void initComponents() {
 
         tab = new javax.swing.JTabbedPane();
-        Zemin2 = new javax.swing.JPanel();
         Zemin1 = new javax.swing.JPanel();
         lblTcNo = new javax.swing.JLabel();
         tfTcNo = new javax.swing.JTextField();
@@ -37,19 +38,6 @@ public class KisiFormu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout Zemin2Layout = new javax.swing.GroupLayout(Zemin2);
-        Zemin2.setLayout(Zemin2Layout);
-        Zemin2Layout.setHorizontalGroup(
-            Zemin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
-        );
-        Zemin2Layout.setVerticalGroup(
-            Zemin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 291, Short.MAX_VALUE)
-        );
-
-        tab.addTab("Gün Bilgileri", Zemin2);
-
         lblTcNo.setText("T.C. Kimlik No");
 
         lblAdSoyad.setText("Adı Soyadı");
@@ -62,7 +50,7 @@ public class KisiFormu extends javax.swing.JFrame {
 
         lblUnvan.setText("Ünvanı");
 
-        cmbUnvan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sürekli İşçi" }));
+        cmbUnvan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "isci" }));
 
         cmbBes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yok", "Var" }));
 
@@ -77,6 +65,11 @@ public class KisiFormu extends javax.swing.JFrame {
         cmbSendika.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yok", "Var" }));
 
         btnKaydet.setText("Veritabanına Kaydet");
+        btnKaydet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKaydetActionPerformed(evt);
+            }
+        });
 
         btnTemizle.setText("Formu Temizle");
 
@@ -157,7 +150,7 @@ public class KisiFormu extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        tab.addTab("Kişi Bilgileri", Zemin1);
+        tab.addTab("Kişi Kayıt Ekranı", Zemin1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,9 +172,50 @@ public class KisiFormu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnKaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaydetActionPerformed
+
+        Connection c = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            String url = "jdbc:sqlite:db\\db.db";
+            c = DriverManager.getConnection(url);
+            c.setAutoCommit(false);
+            stmt = c.createStatement();
+            //String sql = "Insert into KisiBilgileri (adsoyad, tcNo, unvan, medeniDurum, cocukSayisi, bes, sendika, IBAN) values (?,?,?,?,?,?,?,?)", ;
+            JOptionPane.showMessageDialog(this, cmbCocukSayisi.getSelectedItem().toString());
+
+            stmt.execute("Insert into KisiBilgileri (adSoyad, tcNo, unvan, medeniDurum, cocukSayisi, bes, sendika, IBAN) values ("+tfAdSoyad.getText().toString()+","+tfTcNo.getText().toString()+","
+                    +cmbUnvan.getSelectedItem().toString()+","+cmbMedeniDurum.getSelectedItem().toString()+","+cmbCocukSayisi.getSelectedItem().toString()+","
+                    +cmbBes.getSelectedItem().toString()+","+cmbSendika.getSelectedItem().toString()+","+tfIban.getText().toString());
+                    /*+ ""
+                    + ""
+                    + "?,?,?,?,?,?,?,?)", 
+                    tfAdSoyad.getText().toString(),
+                    tfTcNo.getText().toString(),
+                    cmbUnvan.getSelectedItem().toString(),
+                    cmbMedeniDurum.getSelectedItem().toString(),
+                    cmbCocukSayisi.getSelectedItem().toString(),
+                    cmbBes.getSelectedItem().toString(),
+                    cmbSendika.getSelectedItem().toString(), 
+                    tfIban.getText().toString());*/
+            stmt.close();
+            c.commit();
+            c.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        
+    }//GEN-LAST:event_btnKaydetActionPerformed
+
 
     
     public static void main(String args[]) {
+      
+        
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
               new KisiFormu().setVisible(true);
@@ -192,7 +226,6 @@ public class KisiFormu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Zemin1;
-    private javax.swing.JPanel Zemin2;
     private javax.swing.JButton btnKaydet;
     private javax.swing.JButton btnTemizle;
     private javax.swing.JComboBox<String> cmbBes;
