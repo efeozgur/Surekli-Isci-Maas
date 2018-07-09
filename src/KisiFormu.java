@@ -1,6 +1,7 @@
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
@@ -183,21 +184,17 @@ public class KisiFormu extends javax.swing.JFrame {
             c = DriverManager.getConnection(url);
             c.setAutoCommit(false);
             stmt = c.createStatement();
-            //String sql = "Insert into KisiBilgileri (adsoyad, tcNo, unvan, medeniDurum, cocukSayisi, bes, sendika, IBAN) values (?,?,?,?,?,?,?,?)", ;
-            JOptionPane.showMessageDialog(this, cmbCocukSayisi.getSelectedItem().toString());
-
-            stmt.execute("Insert into KisiBilgileri (adSoyad, tcNo, unvan, medeniDurum, cocukSayisi, bes, sendika, IBAN) values (?,?,?,?,?,?,?,?)");
-                    /*+ ""
-                    + ""
-                    + "?,?,?,?,?,?,?,?)", 
-                    tfAdSoyad.getText().toString(),
-                    tfTcNo.getText().toString(),
-                    cmbUnvan.getSelectedItem().toString(),
-                    cmbMedeniDurum.getSelectedItem().toString(),
-                    cmbCocukSayisi.getSelectedItem().toString(),
-                    cmbBes.getSelectedItem().toString(),
-                    cmbSendika.getSelectedItem().toString(), 
-                    tfIban.getText().toString());*/
+            String sql = "Insert into KisiBilgileri (adsoyad, tcNo, unvan, medeniDurum, cocukSayisi, bes, sendika, IBAN) values (?,?,?,?,?,?,?,?)";
+            PreparedStatement psmt=c.prepareStatement(sql);            
+            psmt.setString(1, tfAdSoyad.getText());
+            psmt.setString(2, tfTcNo.getText());
+            psmt.setString(3, cmbUnvan.getSelectedItem().toString());
+            psmt.setString(4, cmbMedeniDurum.getSelectedItem().toString());
+            psmt.setString(5,cmbCocukSayisi.getSelectedItem().toString());
+            psmt.setString(6, cmbBes.getSelectedItem().toString());
+            psmt.setString(7, cmbSendika.getSelectedItem().toString());
+            psmt.setString(8, tfIban.getText());
+            psmt.executeUpdate();
             stmt.close();
             c.commit();
             c.close();
