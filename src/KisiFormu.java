@@ -52,7 +52,7 @@ public class KisiFormu extends javax.swing.JFrame {
 
         cmbUnvan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "isci" }));
 
-        cmbBes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yok", "Var" }));
+        cmbBes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Var", "Yok" }));
 
         lblBes.setText("BES (Zorunlu Bireysel Emeklilik)");
 
@@ -62,7 +62,7 @@ public class KisiFormu extends javax.swing.JFrame {
 
         lblSendika.setText("Sendika Kaydı");
 
-        cmbSendika.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yok", "Var" }));
+        cmbSendika.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Var", "Yok" }));
 
         btnKaydet.setText("Veritabanına Kaydet");
         btnKaydet.addActionListener(new java.awt.event.ActionListener() {
@@ -186,9 +186,7 @@ public class KisiFormu extends javax.swing.JFrame {
             //String sql = "Insert into KisiBilgileri (adsoyad, tcNo, unvan, medeniDurum, cocukSayisi, bes, sendika, IBAN) values (?,?,?,?,?,?,?,?)", ;
             JOptionPane.showMessageDialog(this, cmbCocukSayisi.getSelectedItem().toString());
 
-            stmt.execute("Insert into KisiBilgileri (adSoyad, tcNo, unvan, medeniDurum, cocukSayisi, bes, sendika, IBAN) values ("+tfAdSoyad.getText().toString()+","+tfTcNo.getText().toString()+","
-                    +cmbUnvan.getSelectedItem().toString()+","+cmbMedeniDurum.getSelectedItem().toString()+","+cmbCocukSayisi.getSelectedItem().toString()+","
-                    +cmbBes.getSelectedItem().toString()+","+cmbSendika.getSelectedItem().toString()+","+tfIban.getText().toString());
+            stmt.execute("Insert into KisiBilgileri (adSoyad, tcNo, unvan, medeniDurum, cocukSayisi, bes, sendika, IBAN) values (?,?,?,?,?,?,?,?)");
                     /*+ ""
                     + ""
                     + "?,?,?,?,?,?,?,?)", 
