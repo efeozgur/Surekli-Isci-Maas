@@ -77,6 +77,11 @@ public class KisiFormu extends javax.swing.JFrame {
         });
 
         btnTemizle.setText("Formu Temizle");
+        btnTemizle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTemizleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Zemin1Layout = new javax.swing.GroupLayout(Zemin1);
         Zemin1.setLayout(Zemin1Layout);
@@ -258,6 +263,13 @@ public class KisiFormu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnKaydetActionPerformed
+
+    private void btnTemizleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemizleActionPerformed
+        int sonuc = JOptionPane.showConfirmDialog(this, "Tüm alanlar temizlenecek!\nEmin misiniz ?","UYARI", 2);
+        if (sonuc==0) {
+            Sifirla();
+        } 
+    }//GEN-LAST:event_btnTemizleActionPerformed
 
 
     

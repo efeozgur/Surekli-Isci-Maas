@@ -283,6 +283,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Formu Temizle"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTemizleActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
