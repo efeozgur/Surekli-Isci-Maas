@@ -1,11 +1,9 @@
 
-import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import javax.swing.JTextField;
@@ -442,7 +440,7 @@ public class KisiFormu extends javax.swing.JFrame {
                 lblNet.setText("Net Ödenen : " + String.valueOf(hesap.netOdenen(asy, ysy)));
                 System.out.println("Hakediş Toplamı : "+hesap.hakedisToplami(asy, ysy));
                 System.out.println("Hakediş Toplamı : " +hesap.netOdenen(asy, ysy));
-/*
+
                 Class.forName("org.sqlite.JDBC");
                 String url = "jdbc:sqlite:db\\db.db";
                 c = DriverManager.getConnection(url);
@@ -462,7 +460,7 @@ public class KisiFormu extends javax.swing.JFrame {
                 psmt.executeUpdate();
                 stmt.close();
                 c.commit();
-                c.close();*/
+                c.close();
             } catch (Exception e) {
                 System.out.println(e);
             }
