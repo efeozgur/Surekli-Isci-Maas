@@ -55,7 +55,7 @@ public class KisiFormu extends javax.swing.JFrame {
 
         lblUnvan.setText("Ünvanı");
 
-        cmbUnvan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "isci" }));
+        cmbUnvan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sürekli İşçi" }));
 
         cmbBes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Var", "Yok" }));
 
@@ -207,14 +207,24 @@ public class KisiFormu extends javax.swing.JFrame {
         }
     }
 
+    public boolean Kontrol(){
+        if (!tfAdSoyad.getText().equals("") && !tfTcNo.getText().equals("") && !tfIban.getText().equals("")) {
+            return true;
+        } else return false; 
+    }
     
-    
-    
-    
+    public void Sifirla() {
+        tfAdSoyad.setText("");
+        tfTcNo.setText("");
+        tfIban.setText("");
+        tfTcNo.requestFocus();
+    }
     
     private void btnKaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaydetActionPerformed
     
-        Connection c = null;
+        boolean kontrol = Kontrol();
+        if (kontrol) {
+            Connection c = null;
         Statement stmt = null;
 
         try {
@@ -242,6 +252,11 @@ public class KisiFormu extends javax.swing.JFrame {
         }
 
         JOptionPane.showMessageDialog(this, "Kayıt Başarıyla İşlendi...");
+        Sifirla();
+        } else {
+            JOptionPane.showMessageDialog(this, "Tüm alanları eksiksiz doldurun!");
+        }
+        
     }//GEN-LAST:event_btnKaydetActionPerformed
 
 
