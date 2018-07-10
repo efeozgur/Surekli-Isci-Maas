@@ -38,8 +38,8 @@ public class Main {
         System.out.println("İşsizlik İşveren Sigorta Primi :"+ hesap.sgk2());
         System.out.println("İşsizlik Sigorta Primi :"+ hesap.sgk1());
         System.out.println("Gelir Vergisi Matrahı :"+ hesap.gvMatrahi());
-        System.out.println("ASGARİ GEÇİM İNDİRİMİ : "+AGI.agiYolla(AGILER.EVLI_ESI_CALISMAYAN_2_COCUKLU));
-        System.out.println("Gelir Vergisi : " + hesap.gelirVergisi(15, AGILER.EVLI_ESI_CALISAN_2_COCUKLU));
+        //System.out.println("ASGARİ GEÇİM İNDİRİMİ : "+AGI.agiYolla(AGILER.EVLI_ESI_CALISMAYAN_2_COCUKLU));
+        //System.out.println("Gelir Vergisi : " + hesap.gelirVergisi(15, AGILER.EVLI_ESI_CALISAN_2_COCUKLU));
         System.out.println("Damga Vergisi : " + hesap.damgaVergisi(asy, ysy));
         System.out.println("Hakediş Toplamı : " + hesap.hakedisToplami(asy, ysy));
         System.out.println("Tahakkuk Toplamı : " + hesap.tahakkukToplami(asy, ysy));

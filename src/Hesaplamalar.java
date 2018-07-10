@@ -51,7 +51,7 @@ public class Hesaplamalar extends Kisi{
         return (getBrutUcret()-(sgk14()+sgk1()));
     }
     
-    public double gelirVergisi (int oran, AGILER agi) {
+    public double gelirVergisi (int oran, int agi) {
         if (AGI.agiYolla(agi)<(gvMatrahi()*oran/100)) {
             gvYolla = (gvMatrahi()*oran/100)-AGI.agiYolla(agi);
             return gvYolla;
