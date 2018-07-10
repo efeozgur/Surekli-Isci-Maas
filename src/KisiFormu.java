@@ -178,7 +178,7 @@ public class KisiFormu extends javax.swing.JFrame {
 
         @Override
         protected void processKeyEvent(KeyEvent e) {
-            if (Character.isDigit(e.getKeyChar()) || e.getKeyChar()==KeyEvent.VK_BACK_SPACE || e.getKeyChar()==KeyEvent.VK_DELETE) {
+            if (Character.isDigit(e.getKeyChar()) || (Character.isIdentifierIgnorable(e.getKeyChar()))) /*e.getKeyChar()==KeyEvent.VK_BACK_SPACE || e.getKeyChar()==KeyEvent.VK_LEFT)*/ {
                 super.processKeyEvent(e); //To change body of generated methods, choose Tools | Templates.
             }
             
