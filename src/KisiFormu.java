@@ -57,17 +57,17 @@ public class KisiFormu extends javax.swing.JFrame {
 
         cmbUnvan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sürekli İşçi" }));
 
-        cmbBes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Var", "Yok" }));
+        cmbBes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "false", "true" }));
 
         lblBes.setText("BES (Zorunlu Bireysel Emeklilik)");
 
-        cmbCocukSayisi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Çocuk Yok", "1", "2", "3", "4", "5" }));
+        cmbCocukSayisi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5" }));
 
         lblCocukSayisi.setText("Çocuk Sayısı");
 
         lblSendika.setText("Sendika Kaydı");
 
-        cmbSendika.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Var", "Yok" }));
+        cmbSendika.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "false", "true" }));
 
         btnKaydet.setText("Veritabanına Kaydet");
         btnKaydet.addActionListener(new java.awt.event.ActionListener() {
@@ -230,9 +230,44 @@ public class KisiFormu extends javax.swing.JFrame {
         boolean kontrol = Kontrol();
         if (kontrol) {
             Connection c = null;
-        Statement stmt = null;
+            Statement stmt = null;
+            
 
         try {
+            //Kisi kisi1=new Hesaplamalar(TCNO, adSoyad, medeniDurum, IBAN, unvani, kontrol, kontrol, SOMEBITS)
+            boolean sendika = Boolean.valueOf(cmbSendika.getSelectedItem().toString());
+            boolean bes = Boolean.valueOf(cmbBes.getSelectedItem().toString());
+            //tanımlamalar
+            Kisi kisi = new Kisi(tfTcNo.getText(),tfAdSoyad.getText(), cmbMedeniDurum.getSelectedItem().toString(), tfIban.getText(), cmbUnvan.getSelectedItem().toString(), bes, sendika, Integer.valueOf(cmbCocukSayisi.getSelectedItem().toString()) );
+            Gun gun = new Gun(21, 21, 9, 30);
+            AylikSosyalYardimlar asy = new AylikSosyalYardimlar();
+            YillikSosyalYardimlar ysy = new YillikSosyalYardimlar();
+            OlayaBagliYardimlar oby = new OlayaBagliYardimlar();
+            AGI agi = new AGI();
+            Hesaplamalar hesap = new Hesaplamalar(tfTcNo.getText(),tfAdSoyad.getText(), cmbMedeniDurum.getSelectedItem().toString(), tfIban.getText(), cmbUnvan.getSelectedItem().toString(), bes, sendika, Integer.valueOf(cmbCocukSayisi.getSelectedItem().toString()));
+            // tanımlama sonu
+            
+            //setlemeler
+            asy.setCocukYardimi(kisi);
+            asy.setYakacakYardimi(30);
+            asy.setYemekYardimi(gun);
+                
+            hesap.setBrutUcret(4);
+            hesap.setGunlukUcret(gun);
+            hesap.SGK_Matrahi(asy);
+            hesap.gelirVergisi(15, AGILER.EVLI_ESI_CALISAN_2_COCUKLU);
+            
+            System.out.println("SGK %1 : " + hesap.sgk1());
+            System.out.println("SGK %2 : " + hesap.sgk2());
+            
+            System.out.println("Hakediş Toplamı : "+hesap.hakedisToplami(asy, ysy));
+            System.out.println("Hakediş Toplamı : " +hesap.netOdenen(asy, ysy));
+                    
+
+            
+            /*
+            
+            
             Class.forName("org.sqlite.JDBC");
             String url = "jdbc:sqlite:db\\db.db";
             c = DriverManager.getConnection(url);
@@ -251,7 +286,7 @@ public class KisiFormu extends javax.swing.JFrame {
             psmt.executeUpdate();
             stmt.close();
             c.commit();
-            c.close();
+            c.close();*/
         } catch (Exception e) {
             System.out.println(e);
         }
