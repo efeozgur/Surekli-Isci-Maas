@@ -1,5 +1,9 @@
 
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 import javax.swing.JTextField;
@@ -24,7 +28,7 @@ public class KisiFormu extends javax.swing.JFrame {
         tfAdSoyad = new JHarfTextField();
         lblMedeniDurum = new javax.swing.JLabel();
         cmbMedeniDurum = new javax.swing.JComboBox<>();
-        tfIban = new JIbanField();
+        tfIban = new javax.swing.JTextField();
         lblIban = new javax.swing.JLabel();
         lblUnvan = new javax.swing.JLabel();
         cmbUnvan = new javax.swing.JComboBox<>();
@@ -202,17 +206,7 @@ public class KisiFormu extends javax.swing.JFrame {
             return;             
         }
     }
-    
-    public class JIbanField extends JTextField {
 
-        @Override
-        public void setText(String t) {
-            super.setText("TR ");
-           
-        }
-       
-
-    }
     
     
     
@@ -220,10 +214,6 @@ public class KisiFormu extends javax.swing.JFrame {
     
     private void btnKaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaydetActionPerformed
     
-        
-        tfIban.setText("2323333");
-        
-        /*
         Connection c = null;
         Statement stmt = null;
 
@@ -251,7 +241,7 @@ public class KisiFormu extends javax.swing.JFrame {
             System.out.println(e);
         }
 
-        */
+        JOptionPane.showMessageDialog(this, "Kayıt Başarıyla İşlendi...");
     }//GEN-LAST:event_btnKaydetActionPerformed
 
 
