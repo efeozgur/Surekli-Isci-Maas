@@ -43,6 +43,10 @@ public class KisiFormu extends javax.swing.JFrame {
         cmbSendika = new javax.swing.JComboBox<>();
         lblIban = new javax.swing.JLabel();
         tfIban = new javax.swing.JTextField();
+        lblCocukSayisi = new javax.swing.JLabel();
+        cmbCocukSayisi = new javax.swing.JComboBox<>();
+        lblMedeniDurum = new javax.swing.JLabel();
+        cmbMedeniDurum = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sürekli İşçi Maaş Programı");
@@ -102,7 +106,7 @@ public class KisiFormu extends javax.swing.JFrame {
                 .addComponent(btnKaydet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnTemizle, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(btnKapat, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -121,6 +125,14 @@ public class KisiFormu extends javax.swing.JFrame {
 
         lblIban.setText("IBAN Numarası");
 
+        lblCocukSayisi.setText("Çocuk Sayısı");
+
+        cmbCocukSayisi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5" }));
+
+        lblMedeniDurum.setText("Medeni Durumu");
+
+        cmbMedeniDurum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bekar", "Evli" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -128,28 +140,26 @@ public class KisiFormu extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAdSoyad)
-                            .addComponent(lblTcNo)
-                            .addComponent(lblUnvan))
-                        .addGap(91, 91, 91)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfAdSoyad, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cmbUnvan, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfTcNo)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblBes)
-                            .addComponent(lblSendika)
-                            .addComponent(lblIban)
-                            .addComponent(lblAGI))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbAgi, 0, 335, Short.MAX_VALUE)
-                            .addComponent(tfIban)
-                            .addComponent(cmbBes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbSendika, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(lblBes)
+                    .addComponent(lblSendika)
+                    .addComponent(lblIban)
+                    .addComponent(lblAGI)
+                    .addComponent(lblUnvan)
+                    .addComponent(lblCocukSayisi)
+                    .addComponent(lblAdSoyad)
+                    .addComponent(lblTcNo)
+                    .addComponent(lblMedeniDurum))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfIban)
+                    .addComponent(cmbSendika, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbBes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbAgi, 0, 335, Short.MAX_VALUE)
+                    .addComponent(cmbCocukSayisi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbMedeniDurum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbUnvan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfAdSoyad)
+                    .addComponent(tfTcNo))
                 .addGap(18, 18, 18)
                 .addComponent(btnZemin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -158,21 +168,34 @@ public class KisiFormu extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnZemin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnZemin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(158, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfTcNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAdSoyad))
+                            .addComponent(lblTcNo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfAdSoyad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTcNo))
+                            .addComponent(lblAdSoyad))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cmbUnvan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblUnvan))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMedeniDurum)
+                            .addComponent(cmbMedeniDurum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(cmbCocukSayisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblCocukSayisi)
+                                .addGap(18, 18, 18)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblAGI)
                             .addComponent(cmbAgi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -187,8 +210,8 @@ public class KisiFormu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblIban)
-                            .addComponent(tfIban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                            .addComponent(tfIban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(69, 69, 69))))
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -203,6 +226,30 @@ public class KisiFormu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnTemizleActionPerformed
 
+    
+    public int agiler (AGILER agi) {
+        if (agi == agi.EVLI_ESI_CALISAN_1_COCUKLU) {
+            return 1; 
+        } else if(agi == agi.EVLI_ESI_CALISAN_2_COCUKLU) {
+            return 2; 
+        } else if(agi == agi.EVLI_ESI_CALISAN_3_COCUKLU) {
+            return 3; 
+        } else if(agi == agi.EVLI_ESI_CALISAN_4_COCUKLU) {
+            return 4;
+        } else if(agi == agi.EVLI_ESI_CALISAN_5_COCUKLU) {
+            return 5; 
+        } else if (agi == agi.EVLI_ESI_CALISMAYAN_1_COCUKLU) {
+            return 1;
+        } else if( agi == agi.EVLI_ESI_CALISMAYAN_2_COCUKLU) {
+            return 2;
+        } else if ( agi == agi.EVLI_ESI_CALISMAYAN_3_COCUKLU) {
+            return 3;
+        } else if ( agi == agi.EVLI_ESI_CALISMAYAN_4_COCUKLU) {
+            return 4;
+        } else if ( agi == agi.EVLI_ESI_CALISMAYAN_5_COCUKLU) {
+            return 5;
+        } else return 0; 
+    }
     
     
     private void btnKaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaydetActionPerformed
@@ -227,14 +274,17 @@ public class KisiFormu extends javax.swing.JFrame {
                     bes=false;
                 } else bes = true;
 
+                
+                
+                
                 //tanımlamalar
-                Kisi kisi = new Kisi(tfTcNo.getText(),tfAdSoyad.getText(), "Evli", tfIban.getText(), cmbUnvan.getSelectedItem().toString(), bes, sendika, 2);
+                Kisi kisi = new Kisi(tfTcNo.getText(),tfAdSoyad.getText(), "Evli", tfIban.getText(), cmbUnvan.getSelectedItem().toString(), bes, sendika, Integer.valueOf(cmbCocukSayisi.getSelectedItem().toString()));
                 Gun gun = new Gun(21, 21, 9, 30);
                 AylikSosyalYardimlar asy = new AylikSosyalYardimlar();
                 YillikSosyalYardimlar ysy = new YillikSosyalYardimlar();
                 OlayaBagliYardimlar oby = new OlayaBagliYardimlar();
                 AGI agi = new AGI();
-                Hesaplamalar hesap = new Hesaplamalar(tfTcNo.getText(),tfAdSoyad.getText(), "Evli", tfIban.getText(), cmbUnvan.getSelectedItem().toString(), bes, sendika, 2);
+                Hesaplamalar hesap = new Hesaplamalar(tfTcNo.getText(),tfAdSoyad.getText(), "Evli", tfIban.getText(), cmbUnvan.getSelectedItem().toString(), bes, sendika, Integer.valueOf(cmbCocukSayisi.getSelectedItem().toString()));
                 // tanımlama sonu
 
                 //setlemeler
@@ -250,6 +300,7 @@ public class KisiFormu extends javax.swing.JFrame {
                 System.out.println("SGK %1 : " + hesap.sgk1());
                 System.out.println("SGK %2 : " + hesap.sgk2());
 
+                System.out.println(asy.getCocukYardimi());
                 System.out.println("Hakediş Toplamı : "+hesap.hakedisToplami(asy, ysy));
                 System.out.println("Hakediş Toplamı : " +hesap.netOdenen(asy, ysy));
 
@@ -263,6 +314,8 @@ public class KisiFormu extends javax.swing.JFrame {
                 psmt.setString(1, tfAdSoyad.getText());
                 psmt.setString(2, tfTcNo.getText());
                 psmt.setString(3, cmbUnvan.getSelectedItem().toString());
+                psmt.setString(4, cmbMedeniDurum.getSelectedItem().toString());
+                psmt.setString(5, cmbCocukSayisi.getSelectedItem().toString());
                 psmt.setString(6, cmbBes.getSelectedItem().toString());
                 psmt.setString(7, cmbSendika.getSelectedItem().toString());
                 psmt.setString(8, tfIban.getText());
@@ -281,6 +334,8 @@ public class KisiFormu extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnKaydetActionPerformed
+    
+
     
     private void btnKapatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKapatActionPerformed
         this.dispose();
@@ -350,13 +405,17 @@ public class KisiFormu extends javax.swing.JFrame {
     private javax.swing.JPanel btnZemin;
     private javax.swing.JComboBox<String> cmbAgi;
     private javax.swing.JComboBox<String> cmbBes;
+    private javax.swing.JComboBox<String> cmbCocukSayisi;
+    private javax.swing.JComboBox<String> cmbMedeniDurum;
     private javax.swing.JComboBox<String> cmbSendika;
     private javax.swing.JComboBox<String> cmbUnvan;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAGI;
     private javax.swing.JLabel lblAdSoyad;
     private javax.swing.JLabel lblBes;
+    private javax.swing.JLabel lblCocukSayisi;
     private javax.swing.JLabel lblIban;
+    private javax.swing.JLabel lblMedeniDurum;
     private javax.swing.JLabel lblSendika;
     private javax.swing.JLabel lblTcNo;
     private javax.swing.JLabel lblUnvan;
