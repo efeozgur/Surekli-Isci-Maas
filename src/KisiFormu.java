@@ -1,19 +1,9 @@
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.KeyEvent;
-import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import javax.print.attribute.AttributeSet;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+
 import javax.swing.JTextField;
-import javax.swing.border.Border;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.PlainDocument;
+
 
 
 public class KisiFormu extends javax.swing.JFrame {
@@ -188,8 +178,13 @@ public class KisiFormu extends javax.swing.JFrame {
 
         @Override
         protected void processKeyEvent(KeyEvent e) {
-            if (Character.isDigit(e.getKeyChar())) {
+            if (Character.isDigit(e.getKeyChar()) || e.getKeyChar()==KeyEvent.VK_BACK_SPACE || e.getKeyChar()==KeyEvent.VK_DELETE) {
                 super.processKeyEvent(e); //To change body of generated methods, choose Tools | Templates.
+            }
+            
+            if (getText().length()>11) {
+                JOptionPane.showMessageDialog(this, "Bu alan 11'den büyük olamaz!");
+                setText(getText().substring(0,getText().length()-1));
             }
             e.consume();
             return; 
