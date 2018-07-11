@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 import javax.swing.JTextField;
@@ -60,7 +61,13 @@ public class KisiFormu extends javax.swing.JFrame {
         cmbToplamGun = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         cmbDonem = new javax.swing.JComboBox<>();
-        lblNet = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lblHakEdisToplami = new javax.swing.JLabel();
+        tfHakedisToplami = new javax.swing.JTextField();
+        tfKesintiToplami = new javax.swing.JTextField();
+        lblKesintiToplami = new javax.swing.JLabel();
+        tfNetOdenen = new javax.swing.JTextField();
+        lblNetOdenen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sürekli İşçi Maaş Programı");
@@ -301,7 +308,7 @@ public class KisiFormu extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cmbDonem, 0, 221, Short.MAX_VALUE)
+                .addComponent(cmbDonem, 0, 274, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -312,7 +319,68 @@ public class KisiFormu extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        lblNet.setText("Net Ödenen : ");
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        lblHakEdisToplami.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblHakEdisToplami.setForeground(new java.awt.Color(0, 102, 102));
+        lblHakEdisToplami.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHakEdisToplami.setText("HAKEDİŞ TOPLAMI");
+
+        tfHakedisToplami.setEditable(false);
+        tfHakedisToplami.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tfHakedisToplami.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        tfKesintiToplami.setEditable(false);
+        tfKesintiToplami.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tfKesintiToplami.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        lblKesintiToplami.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblKesintiToplami.setForeground(new java.awt.Color(255, 0, 0));
+        lblKesintiToplami.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblKesintiToplami.setText("KESİNTİ TOPLAMI");
+
+        tfNetOdenen.setEditable(false);
+        tfNetOdenen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tfNetOdenen.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        lblNetOdenen.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblNetOdenen.setForeground(new java.awt.Color(0, 51, 255));
+        lblNetOdenen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNetOdenen.setText("NET ÖDENEN");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblHakEdisToplami, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfHakedisToplami)
+                    .addComponent(lblKesintiToplami, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfKesintiToplami)
+                    .addComponent(lblNetOdenen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfNetOdenen))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblHakEdisToplami)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfHakedisToplami, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblKesintiToplami)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfKesintiToplami, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNetOdenen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfNetOdenen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -327,20 +395,20 @@ public class KisiFormu extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnZemin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNet))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnZemin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnZemin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(lblNet))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -354,12 +422,100 @@ public class KisiFormu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnKapatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKapatActionPerformed
+        int sonuc = JOptionPane.showConfirmDialog(this, "Form Kapatılacak!!\nEmin misiniz ?","UYARI",2);
+        if (sonuc==0) {
+            this.dispose();
+        }
+
+    }//GEN-LAST:event_btnKapatActionPerformed
+
     private void btnTemizleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemizleActionPerformed
         int sonuc = JOptionPane.showConfirmDialog(this, "Tüm alanlar temizlenecek!\nEmin misiniz ?","UYARI", 2);
         if (sonuc==0) {
             Sifirla();
         }
     }//GEN-LAST:event_btnTemizleActionPerformed
+
+    private void btnKaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaydetActionPerformed
+        DecimalFormat df = new DecimalFormat("#.##");
+        boolean kontrol = Kontrol();
+        if (kontrol) {
+            Connection c = null;
+            Statement stmt = null;
+
+            try {
+                boolean sendika,bes;
+                //Kisi kisi1=new Hesaplamalar(TCNO, adSoyad, medeniDurum, IBAN, unvani, kontrol, kontrol, SOMEBITS)
+
+                String sendikatxt = cmbSendika.getSelectedItem().toString();
+                String bestxt = cmbBes.getSelectedItem().toString();
+
+                if (sendikatxt=="Yok") {
+                    sendika=false;
+                } else sendika=true;
+
+                if (bestxt == "Yok") {
+                    bes=false;
+                } else bes = true;
+
+                //tanımlamalar
+                Kisi kisi = new Kisi(tfTcNo.getText(),tfAdSoyad.getText(), "Evli", tfIban.getText(), cmbUnvan.getSelectedItem().toString(), bes, sendika, Integer.valueOf(cmbCocukSayisi.getSelectedItem().toString()));
+                Gun gun = new Gun(Integer.valueOf(cmbNormalGun.getSelectedItem().toString()), Integer.valueOf(cmbYemekVerilecekGun.getSelectedItem().toString()), Integer.valueOf(cmbHaftaTatili.getSelectedItem().toString()), Integer.valueOf(cmbToplamGun.getSelectedItem().toString()));
+                AylikSosyalYardimlar asy = new AylikSosyalYardimlar();
+                YillikSosyalYardimlar ysy = new YillikSosyalYardimlar();
+                OlayaBagliYardimlar oby = new OlayaBagliYardimlar();
+                AGI agi = new AGI();
+                Hesaplamalar hesap = new Hesaplamalar(tfTcNo.getText(),tfAdSoyad.getText(), "Evli", tfIban.getText(), cmbUnvan.getSelectedItem().toString(), bes, sendika, Integer.valueOf(cmbCocukSayisi.getSelectedItem().toString()));
+                // tanımlama sonu
+
+                //setlemeler
+                asy.setCocukYardimi(kisi);
+                asy.setYakacakYardimi(30);
+                asy.setYemekYardimi(gun);
+
+                hesap.setBrutUcret(4);
+                hesap.setGunlukUcret(gun);
+                hesap.SGK_Matrahi(asy);
+                hesap.gelirVergisi(Integer.parseInt(cmbGVOrani.getSelectedItem().toString()), cmbAgi.getSelectedIndex());
+
+               
+
+                tfHakedisToplami.setText(String.valueOf(df.format(hesap.hakedisToplami(asy, ysy))));
+                tfKesintiToplami.setText(String.valueOf(df.format(hesap.kesintiToplami(asy, ysy))));
+                tfNetOdenen.setText(String.valueOf(df.format(hesap.netOdenen(asy, ysy))));
+                
+                
+                Class.forName("org.sqlite.JDBC");
+                String url = "jdbc:sqlite:db\\db.db";
+                c = DriverManager.getConnection(url);
+                c.setAutoCommit(false);
+                stmt = c.createStatement();
+                String sql = "Insert into KisiBilgileri (adsoyad, tcNo, unvan, medeniDurum, cocukSayisi, bes, sendika, IBAN, maasDonemi) values (?,?,?,?,?,?,?,?,?)";
+                PreparedStatement psmt=c.prepareStatement(sql);
+                psmt.setString(1, tfAdSoyad.getText());
+                psmt.setString(2, tfTcNo.getText());
+                psmt.setString(3, cmbUnvan.getSelectedItem().toString());
+                psmt.setString(4, cmbMedeniDurum.getSelectedItem().toString());
+                psmt.setString(5, cmbCocukSayisi.getSelectedItem().toString());
+                psmt.setString(6, cmbBes.getSelectedItem().toString());
+                psmt.setString(7, cmbSendika.getSelectedItem().toString());
+                psmt.setString(8, tfIban.getText());
+                psmt.setString(9, cmbDonem.getSelectedItem().toString());
+                psmt.executeUpdate();
+                stmt.close();
+                c.commit();
+                c.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+            JOptionPane.showMessageDialog(this, "Kayıt Başarıyla İşlendi...");
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "Tüm alanları eksiksiz doldurun!");
+        }
+    }//GEN-LAST:event_btnKaydetActionPerformed
 
     
     public int agiler (AGILER agi) {
@@ -386,99 +542,9 @@ public class KisiFormu extends javax.swing.JFrame {
         } else return 0; 
     }
     
-    
-    private void btnKaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaydetActionPerformed
-
-        boolean kontrol = Kontrol();
-        if (kontrol) {
-            Connection c = null;
-            Statement stmt = null;
-
-            try {
-                boolean sendika,bes;
-                //Kisi kisi1=new Hesaplamalar(TCNO, adSoyad, medeniDurum, IBAN, unvani, kontrol, kontrol, SOMEBITS)
-
-                String sendikatxt = cmbSendika.getSelectedItem().toString();
-                String bestxt = cmbBes.getSelectedItem().toString();
-
-                if (sendikatxt=="Yok") {
-                    sendika=false;
-                } else sendika=true;
-
-                if (bestxt == "Yok") {
-                    bes=false;
-                } else bes = true;
-
-                
-                
-                
-                //tanımlamalar
-                Kisi kisi = new Kisi(tfTcNo.getText(),tfAdSoyad.getText(), "Evli", tfIban.getText(), cmbUnvan.getSelectedItem().toString(), bes, sendika, Integer.valueOf(cmbCocukSayisi.getSelectedItem().toString()));
-                Gun gun = new Gun(Integer.valueOf(cmbNormalGun.getSelectedItem().toString()), Integer.valueOf(cmbYemekVerilecekGun.getSelectedItem().toString()), Integer.valueOf(cmbHaftaTatili.getSelectedItem().toString()), Integer.valueOf(cmbToplamGun.getSelectedItem().toString()));
-                AylikSosyalYardimlar asy = new AylikSosyalYardimlar();
-                YillikSosyalYardimlar ysy = new YillikSosyalYardimlar();
-                OlayaBagliYardimlar oby = new OlayaBagliYardimlar();
-                AGI agi = new AGI();
-                Hesaplamalar hesap = new Hesaplamalar(tfTcNo.getText(),tfAdSoyad.getText(), "Evli", tfIban.getText(), cmbUnvan.getSelectedItem().toString(), bes, sendika, Integer.valueOf(cmbCocukSayisi.getSelectedItem().toString()));
-                // tanımlama sonu
-
-                //setlemeler
-                asy.setCocukYardimi(kisi);
-                asy.setYakacakYardimi(30);
-                asy.setYemekYardimi(gun);
-
-                hesap.setBrutUcret(4);
-                hesap.setGunlukUcret(gun);
-                hesap.SGK_Matrahi(asy);
-                hesap.gelirVergisi(Integer.parseInt(cmbGVOrani.getSelectedItem().toString()), cmbAgi.getSelectedIndex());
-
-                System.out.println("SGK %1 : " + hesap.sgk1());
-                System.out.println("SGK %2 : " + hesap.sgk2());
-                System.out.println(hesap.gelirVergisi(Integer.parseInt(cmbGVOrani.getSelectedItem().toString()), cmbAgi.getSelectedIndex()));
-                System.out.println(cmbAgi.getSelectedIndex());
-
-                lblNet.setText("Net Ödenen : " + String.valueOf(hesap.netOdenen(asy, ysy)));
-                System.out.println("Hakediş Toplamı : "+hesap.hakedisToplami(asy, ysy));
-                System.out.println("Hakediş Toplamı : " +hesap.netOdenen(asy, ysy));
-
-                Class.forName("org.sqlite.JDBC");
-                String url = "jdbc:sqlite:db\\db.db";
-                c = DriverManager.getConnection(url);
-                c.setAutoCommit(false);
-                stmt = c.createStatement();
-                String sql = "Insert into KisiBilgileri (adsoyad, tcNo, unvan, medeniDurum, cocukSayisi, bes, sendika, IBAN, maasDonemi) values (?,?,?,?,?,?,?,?,?)";
-                PreparedStatement psmt=c.prepareStatement(sql);
-                psmt.setString(1, tfAdSoyad.getText());
-                psmt.setString(2, tfTcNo.getText());
-                psmt.setString(3, cmbUnvan.getSelectedItem().toString());
-                psmt.setString(4, cmbMedeniDurum.getSelectedItem().toString());
-                psmt.setString(5, cmbCocukSayisi.getSelectedItem().toString());
-                psmt.setString(6, cmbBes.getSelectedItem().toString());
-                psmt.setString(7, cmbSendika.getSelectedItem().toString());
-                psmt.setString(8, tfIban.getText());
-                psmt.setString(9, cmbDonem.getSelectedItem().toString());
-                psmt.executeUpdate();
-                stmt.close();
-                c.commit();
-                c.close();
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
-            JOptionPane.showMessageDialog(this, "Kayıt Başarıyla İşlendi...");
-            Sifirla();
-        } else {
-            JOptionPane.showMessageDialog(this, "Tüm alanları eksiksiz doldurun!");
-        }
-
-    }//GEN-LAST:event_btnKaydetActionPerformed
-    
+        
 
     
-    private void btnKapatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKapatActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnKapatActionPerformed
-
     public class JNumberTextField extends JTextField {
        //private static final long serialVersionUID = 1L;
 
@@ -561,19 +627,25 @@ public class KisiFormu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblAGI;
     private javax.swing.JLabel lblAdSoyad;
     private javax.swing.JLabel lblBes;
     private javax.swing.JLabel lblCocukSayisi;
     private javax.swing.JLabel lblGVOrani;
+    private javax.swing.JLabel lblHakEdisToplami;
     private javax.swing.JLabel lblIban;
+    private javax.swing.JLabel lblKesintiToplami;
     private javax.swing.JLabel lblMedeniDurum;
-    private javax.swing.JLabel lblNet;
+    private javax.swing.JLabel lblNetOdenen;
     private javax.swing.JLabel lblSendika;
     private javax.swing.JLabel lblTcNo;
     private javax.swing.JLabel lblUnvan;
     private javax.swing.JTextField tfAdSoyad;
+    private javax.swing.JTextField tfHakedisToplami;
     private javax.swing.JTextField tfIban;
+    private javax.swing.JTextField tfKesintiToplami;
+    private javax.swing.JTextField tfNetOdenen;
     private javax.swing.JTextField tfTcNo;
     // End of variables declaration//GEN-END:variables
 }
