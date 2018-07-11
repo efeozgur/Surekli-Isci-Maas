@@ -509,41 +509,16 @@ public class KisiFormu extends javax.swing.JFrame {
                 System.out.println(e);
             }
 
-            JOptionPane.showMessageDialog(this, "Kayıt Başarıyla İşlendi...");
+            int sonuc = JOptionPane.showConfirmDialog(this, "Kayıt Başarıyla İşlendi.\nAlanlar sıfırlansın mı ?","UYARI",2);
+            if (sonuc == 0) {
+                Sifirla();
+            };
             
         } else {
             JOptionPane.showMessageDialog(this, "Tüm alanları eksiksiz doldurun!");
         }
     }//GEN-LAST:event_btnKaydetActionPerformed
 
-    
-    public int agiler (AGILER agi) {
-        if (agi == agi.EVLI_ESI_CALISAN_1_COCUKLU) {
-            return 1; 
-        } else if(agi == agi.EVLI_ESI_CALISAN_2_COCUKLU) {
-            return 2; 
-        } else if(agi == agi.EVLI_ESI_CALISAN_3_COCUKLU) {
-            return 3; 
-        } else if(agi == agi.EVLI_ESI_CALISAN_4_COCUKLU) {
-            return 4;
-        } else if(agi == agi.EVLI_ESI_CALISAN_5_COCUKLU) {
-            return 5; 
-        } else if (agi == agi.EVLI_ESI_CALISMAYAN_1_COCUKLU) {
-            return 1;
-        } else if( agi == agi.EVLI_ESI_CALISMAYAN_2_COCUKLU) {
-            return 2;
-        } else if ( agi == agi.EVLI_ESI_CALISMAYAN_3_COCUKLU) {
-            return 3;
-        } else if ( agi == agi.EVLI_ESI_CALISMAYAN_4_COCUKLU) {
-            return 4;
-        } else if ( agi == agi.EVLI_ESI_CALISMAYAN_5_COCUKLU) {
-            return 5;
-        } else return 0; 
-    }
-    
-        
-
-    
     public class JNumberTextField extends JTextField {
        //private static final long serialVersionUID = 1L;
 
